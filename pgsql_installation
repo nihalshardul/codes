@@ -1,0 +1,43 @@
+1. download postgress tar file
+2. ./configure prefix="path_to_download_jar_files" --without-readline --without-zlib
+3. make or make -j 12   i.e. job of 12
+4. sudo make install
+5. create user by = sudo adduser "username i.e. postgres"
+6. set the password 'p' and nul for others.
+7. sudo chmod 775 /home/nihal/spc/data/ (give permission from root i.e. nihal)
+8. sudo chown postgres /home/nihal/spc/data/ (give permisiion to user postgres i.e. nihal)
+9. su - postgress
+10. postgres@nihal-pucsd:~$ /home/nihal/spc/config/bin/initdb -D /home/nihal/spc/data/ (in postgres)
+11. postgres@nihal-pucsd:~$ /home/nihal/spc/config/bin/pg_ctl -D /home/nihal/spc/data/ -l logfile start
+12. postgres@nihal-pucsd:~$ /home/nihal/spc/config/bin/createdb nitin_patil
+13. postgres@nihal-pucsd:~$ /home/nihal/spc/config/bin/psql nitin_patil
+psql (9.3.0)
+Type "help" for help.
+
+nitin_patil=# /l
+nitin_patil-# \l
+                              List of databases
+    Name     |  Owner   | Encoding | Collate | Ctype |   Access privileges   
+-------------+----------+----------+---------+-------+-----------------------
+ nitin_patil | postgres | UTF8     | en_IN   | en_IN | 
+ postgres    | postgres | UTF8     | en_IN   | en_IN | 
+ template0   | postgres | UTF8     | en_IN   | en_IN | =c/postgres          +
+             |          |          |         |       | postgres=CTc/postgres
+ template1   | postgres | UTF8     | en_IN   | en_IN | =c/postgres          +
+             |          |          |         |       | postgres=CTc/postgres
+(4 rows)
+
+nitin_patil=# create database nihal owner nihal;
+CREATE DATABASE
+nitin_patil=# \l
+                              List of databases
+    Name     |  Owner   | Encoding | Collate | Ctype |   Access privileges   
+-------------+----------+----------+---------+-------+-----------------------
+ nihal       | nihal    | UTF8     | en_IN   | en_IN | 
+ nitin_patil | postgres | UTF8     | en_IN   | en_IN | 
+ postgres    | postgres | UTF8     | en_IN   | en_IN | 
+ template0   | postgres | UTF8     | en_IN   | en_IN | =c/postgres          +
+             |          |          |         |       | postgres=CTc/postgres
+ template1   | postgres | UTF8     | en_IN   | en_IN | =c/postgres          +
+             |   
+14. 
